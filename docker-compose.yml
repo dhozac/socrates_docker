@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  rethinkdb:
+    build: rethinkdb
+    ports:
+    - "28015:28015"
+    volumes:
+    - "./data/rethinkdb:/srv/rethinkdb"
+  mysql:
+    image: "mysql:5"
+    ports:
+    - "3306:3306"
+    environment:
+      MYSQL_DATABASE: socrates
+      MYSQL_USER: socrates
+      MYSQL_PASSWORD: socrates
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+    volumes:
+    - "./data/mysql:/var/lib/mysql"
+  web:
+    build: web
+    ports:
+    - "8000:80"
+    volumes:
+    - "./playbooks:/srv/socrates/playbooks:ro"
+    - "./socrates_local:/srv/socrates/socrates_local:ro"
