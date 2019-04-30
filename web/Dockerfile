@@ -5,7 +5,7 @@ RUN yum install -y python-pip nginx nodejs mysql-devel \
                  && yum clean all && rm -fr /var/cache/yum
 RUN sed -i -e '47,48d' /etc/nginx/nginx.conf
 RUN pip --no-cache-dir install socrates_api bonk socrates_gui Django==1.11.15 \
-        gunicorn mysqlclient django-auth-ldap pyvmomi && \
+        gunicorn mysqlclient django-auth-ldap pyvmomi ansible && \
     rm -fr /tmp/pip-build*
 RUN cd /srv && django-admin startproject socrates
 VOLUME /srv/socrates/socrates_local
