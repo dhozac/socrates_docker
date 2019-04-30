@@ -147,7 +147,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication', 
     ) 
 }
-SOCRATES_OOB_DOMAIN = 'oob.prisjakt.nu'
+SOCRATES_OOB_DOMAIN = 'oob.domain'
 SOCRATES_CHANGEFEED_MAX_WAIT = 30
 ANSIBLE_PLAYBOOK_DIR = '/srv/socrates/playbooks'
 CELERY_RESULT_EXPIRES = 86400
